@@ -34,7 +34,7 @@ def _plugin_version() -> str:
     Pull the package version from the main package version file
     """
     attributes = {}
-    exec(VERSION.read_text(), attributes)
+    exec(VERSION.read_text(encoding="utf8"), attributes)
     return attributes["version"]
 
 
@@ -75,7 +75,7 @@ setup(
     name="dbt-mysql",
     version=_plugin_version(),
     description="The MySQL adapter plugin for dbt",
-    long_description=README.read_text(),
+    long_description=README.read_text(encoding="utf8"),
     long_description_content_type="text/markdown",
     author="Doug Beatty",
     author_email="doug.beatty@gmail.com",
@@ -96,6 +96,8 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
     ],
     python_requires=">=3.7",
 )
